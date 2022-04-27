@@ -1,0 +1,45 @@
+title: "OurBlog"
+description: >- # this means to ignore newlines until "baseurl:"
+  Let's write this together!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+
+
+
+# post 博文
+permalink: /:year/:month/:title
+
+# Pagination 分页
+paginate: 12
+paginate_path: "/page:num/" # 分页的url
+
+# Excerpt 摘要
+excerpt_separator: <!--more--> # 摘要的分隔符
+excerpt_max_num: 64 # 摘要的最大长度
+
+# Plugins 插件
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+# Exclude 排除
+exclude:
+  - .gitattributes
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - _site/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules/
+  - README.md
+  - src/
+  - tailwind.config.js
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  

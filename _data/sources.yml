@@ -1,0 +1,5 @@
+sources:
+  bootcdn:
+    mathjax: https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js
+    fslightbox: https://cdn.bootcdn.net/ajax/libs/fslightbox/3.3.1/index.min.js
+    
