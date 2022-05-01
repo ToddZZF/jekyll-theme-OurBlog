@@ -1,4 +1,5 @@
 # jekyll-theme-OurBlog
+
  a theme design for co-writting blog
 
 > Dedicated to My Lovely Girlfriend Molly
@@ -16,7 +17,6 @@
 
 ## Developement
 
-[jekyll-theme-OurBlog ](./) use tailwindcss to design. No js frameworks are used, just some pure js script and packages, which are shown below:
+[jekyll-theme-OurBlog](./) use tailwindcss to design. No js frameworks are used, just some pure js script and packages, which are shown below:
 
 - [fslightbox.js]: Simple and powerful lightbox without any dependencies!
-- 

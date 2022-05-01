@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+
+{% capture page.title %}
+{{ page.category }} | {{ page.date | date: '%Y-%m-%d' }}
+{% endcapture %}
+
+<head>
+    {% include head.html %}
+</head>
+
+<body class="antialiased text-left font-normal text-base">
+    <div class="friend-letter-wrapper py-3 px-4 min-h-screen">
+        <div
+            class="letter relative max-w-3xl min-h-full my-0 h-f mx-auto border border-gray-300 py-4 px-6 bg-white overflow-hidden">
+            <div class="modal-header flex items-start justify-between p-4 border-0">
+                <div class="flex flex-wrap w-full p-0 m-0">
+                    <div class="relative flex-grow basis-0 w-full max-w-full"></div>
+                    <div class="relative text-right -mr-4 p-0 basis-0 flex-grow w-full">
+                        <div class="inline-block text-center align-middle bg-transparent">
+                            <img class="bg-transparent" src="/assets/images/stamps/{{- page.stamp -}}.png" width="100"
+                                height="100">
+                        </div>
+                        <div
+                            class="absolute w-[200px] h-[70px] right-[64px] bottom-[-15px] pt-[22px] pr-[22px] text-[20px] leading-[26px] font-serif text-[#ffc300] text-right">
+                            <div
+                                class="absolute w-[200px] h-[70px] bg-chop-img bg-right bg-contain bg-no-repeat left-0 top-0">
+                            </div>
+                            CN
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body min-h-[240px] pb-12 px-4 text-lg font-medium">
+                <div class="whitespace-pre-wrap break-words">
+                    {{- content -}}
+                </div>
+
+                {% if page.img %}
+
+                <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto">
+                    {% for img in page.img %}
+                    {% capture img_url %}
+                        {{- '/assets/images/letter-img/' | append:  img  | append: '.jpg' | relative_url -}}
+                    {% endcapture %}
+                    <div class="shrink-0">
+                        <a data-fslightbox href="{{- img_url -}}"><img class="shrink w-auto h-40 rounded-lg shadow-xl bg-white"
+                                src="{{- img_url -}}"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% include extensions/fslightbox.html %}
+
+                {% endif %}
+
+
+            </div>
+            <div class="modal-footer items-baseline flex bottom-0">
+                <div class="flex-grow flex items-start">
+                    <img class="rounded-[50%]" src="/assets/images/letter-img/{{- page.category -}}.png" width="60"
+                        height="60">
+                    <div class="ml-4 mr-4 mt-2 flex-grow flex-shrink basis-0">
+                        <h5 class="mb-1 text-lg text-black">{{- page.category -}}</h5>
+                        <p>
+                            {{- page.date | date: "%Y年%-m月%-d日 %R" -}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

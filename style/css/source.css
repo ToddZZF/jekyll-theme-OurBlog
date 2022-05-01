@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-chop-img {
+    background-image: url('/assets/images/stamps/chop.png');
+}

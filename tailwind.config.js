@@ -10,7 +10,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        old_fashion: {
           "primary": "#a67a76",
           "secondary": "#d9ccb4",
           "accent": "#4b83a6",
@@ -20,6 +20,17 @@ module.exports = {
           "success": "#dcfce7",
           "warning": "#fef9c3",
           "error": "#fee2e2",
+        },
+        mytheme: {
+          "primary": "#6419E6",
+          "secondary": "#D926A9",
+          "accent": "#1FB2A6",
+          "neutral": "#191D24",
+          "base-100": "#2A303C",
+          "info": "#3ABFF8",
+          "success": "#36D399",
+          "warning": "#FBBD23",
+          "error": "#F87272",
         },
       },
     ],

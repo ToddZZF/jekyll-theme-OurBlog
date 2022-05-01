@@ -5,7 +5,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 
-
+# cdn
+cdn: bootcdn
 
 # post 博文
 permalink: /:year/:month/:title
@@ -17,6 +18,21 @@ paginate_path: "/page:num/" # 分页的url
 # Excerpt 摘要
 excerpt_separator: <!--more--> # 摘要的分隔符
 excerpt_max_num: 64 # 摘要的最大长度
+
+# Collections 集合
+collections:
+  letters:
+    output: true
+    permalink: /:categories/:year-:month-:day/
+
+# Defaults 默认头
+defaults:
+  -
+    scope:
+      path: ""
+      type: "letters"
+    values:
+      layout: "letter"
 
 # Plugins 插件
 plugins:

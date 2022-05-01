@@ -1,0 +1,71 @@
+<div class="navbar bg-neutral text-neutral-content shadow-xl rounded-box">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7">
+                    </path>
+                </svg>
+            </label>
+            <ul tabindex="0" class="mt-3 p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                {%- for item in include.menu -%}
+                <li><a href="{{- item.url | relative_url -}}">{{- item.title -}}</a></li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </div>
+    <div class="navbar-center">
+        <a class="btn btn-ghost normal-case text-xl">{{- site.title -}}</a>
+    </div>
+    <div class="navbar-end">
+        <div class="grid grid-flow-col gap-5 text-center text-sm auto-cols-max">
+            <div class="flex flex-col">
+                <span class="font-mono text-[1.25rem] leading-none">
+                    <span id="day"></span>
+                </span>
+                days
+            </div>
+            <div class="hidden sm:flex flex-col">
+                <span class="countdown font-mono text-xl">
+                    <span id="hour" style="--value:2"></span>
+                </span>
+                hours
+            </div>
+            <div class="hidden sm:flex flex-col">
+                <span class="countdown font-mono text-xl">
+                    <span id="minute" style="--value:1"></span>
+                </span>
+                mins
+            </div>
+            <div class="hidden sm:flex dis flex-col">
+                <span class="countdown font-mono text-xl">
+                    <span id="second" style="--value:1"></span>
+                </span>
+                sec
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function count() {
+        let myDate = new Date();
+        let d = Math.floor((myDate - (new Date("2021-9-11"))) / 1000 / 60 / 60 / 24);
+        let h = myDate.getHours();
+        let m = myDate.getMinutes();
+        let s = myDate.getSeconds();
+        let day = document.getElementById("day");
+        let hour = document.getElementById("hour");
+        let minute = document.getElementById("minute");
+        let second = document.getElementById("second");
+        day.innerHTML = d;
+        hour.style.setProperty("--value", h);
+        minute.style.setProperty("--value", m);
+        second.style.setProperty("--value", s);
+        setTimeout(count, 1000);
+    }
+    count();
+</script>
