@@ -1,0 +1,32 @@
+---
+layout: page
+permalink: /photos.html
+---
+
+<div class="pt-20 px-4 min-h-screen w-full mx-auto lg:max-w-4xl">
+    {% for item in site.data.photos %}
+    <div class="card card-compact bg-neutral shadow-xl my-4">
+        <div class="card-body">
+            <h2 class="card-title">{{- item.title -}}</h2>
+            <p>{{- item.description -}}</p>
+        </div>
+        <div class="grid grid-cols-6 col-span-2 gap-2 p-2">
+            <div class="overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
+                <img class="lazy h-full w-full object-cover " data-src="{{- item.photos[0] -}}" alt="">
+            </div>
+            <div class="overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
+                <img class="lazy h-full w-full object-cover " data-src="{{- item.photos[1] -}}" alt="">
+            </div>
+                <div class="relative overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
+                    <a href="{{- item.url -}}">
+                    <div class="text-white text-xl absolute inset-0  bg-slate-900/80 flex justify-center items-center">
+                        {{- item.total | default:'more' | prepend: '+' -}}
+                    </div></a>
+                    <img class="lazy h-full w-full object-cover " data-src="{{- item.photos[2] -}}" alt="">
+                </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{%- include extensions/lazyload.html -%}

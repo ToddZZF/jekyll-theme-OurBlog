@@ -2,4 +2,6 @@ sources:
   bootcdn:
     mathjax: 'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js'
     fslightbox: 'https://cdn.bootcdn.net/ajax/libs/fslightbox/3.3.1/index.min.js'
+    lazyload: 'https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js'
+    masonry: 'https://cdn.bootcdn.net/ajax/libs/macy/2.5.1/macy.js'
     

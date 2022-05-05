@@ -4,6 +4,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Password 密码
+password: 'double-zhou'
 
 # cdn
 cdn: bootcdn
@@ -23,7 +25,10 @@ excerpt_max_num: 64 # 摘要的最大长度
 collections:
   letters:
     output: true
-    permalink: /:categories/:year-:month-:day/
+    permalink: /:categories/:year-:month-:day.html
+  photos:
+    output: true
+    permalink: /:categories/:year/:title.html
 
 # Defaults 默认头
 defaults:
@@ -33,6 +38,12 @@ defaults:
       type: "letters"
     values:
       layout: "letter"
+  -
+    scope:
+      path: ""
+      type: "photos"
+    values:
+      layout: "photos"
 
 # Plugins 插件
 plugins:

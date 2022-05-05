@@ -1,6 +1,8 @@
 - title: letters
-  url: /letters
+  url: /letters.html
 - title: timeline
-  url: /timeline
+  url: /timeline.html
 - title: photos
-  url: /photos
+  url: /photos.html
+- title: plans
+  url: /plans.html

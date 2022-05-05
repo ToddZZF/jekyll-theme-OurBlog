@@ -2,18 +2,18 @@
 <html lang="zh-Hans">
 
 
-{% capture page.title %}
+{%- capture page.title -%}
 {{ page.category }} | {{ page.date | date: '%Y-%m-%d' }}
-{% endcapture %}
+{%- endcapture -%}
 
 <head>
     {% include head.html %}
 </head>
 
-<body class="antialiased text-left font-normal text-base">
+<body data-theme="mytheme" class="antialiased text-left font-normal text-base bg-base-100">
     <div class="friend-letter-wrapper py-3 px-4 min-h-screen">
         <div
-            class="letter relative max-w-3xl min-h-full my-0 h-f mx-auto border border-gray-300 py-4 px-6 bg-white overflow-hidden">
+            class="letter relative max-w-3xl min-h-full my-0 h-f mx-auto border border-gray-300 py-4 px-6 bg-neutral text-neutral-content overflow-hidden">
             <div class="modal-header flex items-start justify-between p-4 border-0">
                 <div class="flex flex-wrap w-full p-0 m-0">
                     <div class="relative flex-grow basis-0 w-full max-w-full"></div>
@@ -36,33 +36,27 @@
                 <div class="whitespace-pre-wrap break-words">
                     {{- content -}}
                 </div>
-
-                {% if page.img %}
-
+                {%- if page.img -%}
                 <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto">
                     {% for img in page.img %}
                     {% capture img_url %}
-                        {{- '/assets/images/letter-img/' | append:  img  | append: '.jpg' | relative_url -}}
+                    {{- '/assets/images/letter-img/' | append: img | append: '.jpg' | relative_url -}}
                     {% endcapture %}
                     <div class="shrink-0">
-                        <a data-fslightbox href="{{- img_url -}}"><img class="shrink w-auto h-40 rounded-lg shadow-xl bg-white"
-                                src="{{- img_url -}}"></a>
+                        <a data-fslightbox href="{{- img_url -}}"><img
+                                class="shrink w-auto h-40 rounded-lg shadow-xl bg-white" src="{{- img_url -}}"></a>
                     </div>
                     {% endfor %}
                 </div>
-
-                {% include extensions/fslightbox.html %}
-
-                {% endif %}
-
-
+                {%- include extensions/fslightbox.html -%}
+                {%- endif -%}
             </div>
             <div class="modal-footer items-baseline flex bottom-0">
                 <div class="flex-grow flex items-start">
                     <img class="rounded-[50%]" src="/assets/images/letter-img/{{- page.category -}}.png" width="60"
                         height="60">
                     <div class="ml-4 mr-4 mt-2 flex-grow flex-shrink basis-0">
-                        <h5 class="mb-1 text-lg text-black">{{- page.category -}}</h5>
+                        <h5 class="mb-1 text-lg">{{- page.category -}}</h5>
                         <p>
                             {{- page.date | date: "%Y年%-m月%-d日 %R" -}}
                         </p>

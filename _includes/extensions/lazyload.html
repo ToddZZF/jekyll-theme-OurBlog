@@ -1,0 +1,10 @@
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+<script src="{{- _sources.lazyload -}}"></script>
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+    lazyLoadInstance.update();
+</script>

@@ -1,0 +1,54 @@
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+{%- assign img_format = ".png,.jpg,.webp" | split: ',' -%}
+<div id="macy-container">
+    {%- assign sorted = site.static_files | sort: 'date' | reverse -%}
+    {%- for file in sorted -%}
+    {%- if file.path contains include.img_folder -%}
+    {%- if img_format contains file.extname -%}
+    <div class="w-full rounded shadow-base-300 overflow-hidden">
+        <a data-fslightbox href="{{ file.path | relative_url }}">
+            <img loading="lazy" class="min-h-[120px] h-auto w-full object-cover" 
+                src="{{ include.thumb_folder | default:include.img_folder }}{{ file.basename }}{{ include.thumb_format | default: file.extname }}" />
+        </a>
+    </div>
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor -%}
+</div>
+{%- include extensions/fslightbox.html -%}
+<script src="{{- _sources.masonry -}}"></script>
+<script>
+    var masonry = new Macy({
+        container: '#macy-container',
+        trueOrder: true,
+        waitForImages: true,
+        useOwnImageLoader: false,
+        mobileFirst: true,
+        columns: 2,
+        margin: {
+            y: 16,
+            x: '2%',
+        },
+        breakAt: {
+            1200: 5,
+            940: 4,
+            520: 3,
+            400: 2
+        },
+    });
+    masonry.runOnImageLoad(function () { masonry.recalculate(true); }, true);
+    function masonry_update(element) {
+        masonry.recalculate(true);
+    }
+</script>
+<!-- <script src="{{- _sources.lazyload -}}"></script>
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        unobserve_entered: true,
+        use_native: true,
+        callback_enter: masonry_update
+    });
+    masonry.recalculate(true);
+</script> -->

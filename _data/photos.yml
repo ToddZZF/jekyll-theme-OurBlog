@@ -1,0 +1,9 @@
+- title: slowly
+  description: slowly photos
+  photos: [
+    '/assets/thumbs/letter-img/凌晨1点15.webp',
+    '/assets/thumbs/letter-img/Mollia.webp',
+    '/assets/thumbs/letter-img/20210531.webp',
+  ]
+  url: /2022/stamps.html
+  total: 

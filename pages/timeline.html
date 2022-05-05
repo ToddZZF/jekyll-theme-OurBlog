@@ -1,0 +1,30 @@
+---
+layout: page
+permalink: /timeline.html
+---
+
+<div class="pt-20 px-4 min-h-screen w-full mx-auto lg:max-w-4xl">
+    {%- for item in site.data.timeline -%}
+    <div class="flex">
+        <div class="flex flex-col items-center mr-4">
+            <div>
+                <div class="flex items-center justify-center w-10 h-10 rounded-full text-2xl">
+                    {{- item.icon | default: '📅' -}}
+                </div>
+            </div>
+            <div class="w-px h-full bg-neutral-content"></div>
+        </div>
+        <div class="pb-8 pt-2 text-neutral-content">
+            <p class="text-sm">{{- item.date -}}</p>
+            <a href="{{- item.url | relative_url -}}">
+                <p class="pb-1 text-xl font-bold underline hover:text-primary">{{- item.title -}}</p>
+            </a>
+            <p class="">
+                {{- item.description -}}
+            </p>
+            {{- item.other -}}
+        </div>
+    </div>
+    {%- endfor -%}
+</div>
+</div>
